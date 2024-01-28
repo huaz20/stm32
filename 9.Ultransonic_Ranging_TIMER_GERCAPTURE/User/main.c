@@ -4,24 +4,25 @@
 #include "./BSP/LED/led.h"
 #include "./BSP/TIMER/gtim.h"
 
-extern uint8_t g_timxchy_cap_sta ;/*ÊäÈë²¶»ñ×´Ì¬*/
-extern uint16_t g_timxchy_cap_val;/*ÊäÈë²¶»ñÖ®*/
+extern uint8_t g_timxchy_cap_sta ;/*ï¿½ï¿½ï¿½ë²¶ï¿½ï¿½×´Ì¬*/
+extern uint16_t g_timxchy_cap_val;/*ï¿½ï¿½ï¿½ë²¶ï¿½ï¿½Ö®*/
 
 uint32_t temp = 0;
 uint32_t distance = 0;
 
 int main(void)
 {
-    HAL_Init();                                 /* ³õÊ¼»¯HAL¿â */
-    SystemClock_Config();        /* ÉèÖÃÊ±ÖÓ,72M */
-    delay_init(72);                             /* ³õÊ¼»¯ÑÓÊ±º¯Êý */
-    led_init();                                /* ³õÊ¼»¯LED */
+    HAL_Init();                                 /* ï¿½ï¿½Ê¼ï¿½ï¿½HALï¿½ï¿½ */
+    SystemClock_Config();        /* ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½,72M */
+    delay_init(72);                             /* ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ */
+    led_init();                                /* ï¿½ï¿½Ê¼ï¿½ï¿½LED */
     gtim_timx_cap_chy_init(0XFFFF,72 - 1);
     while(1)
     {
 				HAL_GPIO_WritePin(GPIOC,GPIO_PIN_15,GPIO_PIN_SET);
 				delay_us(11);
 				HAL_GPIO_WritePin(GPIOC,GPIO_PIN_15,GPIO_PIN_RESET);
+				delay_ms(100);
 				if(g_timxchy_cap_sta  &  0X80)
 				{
 					temp = g_timxchy_cap_sta  & 0X3F;
