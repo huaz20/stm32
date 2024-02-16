@@ -181,7 +181,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 				 }
 		 else if(g_rx_buffer[0] == '0')
 				 {
-					 __HAL_TIM_SET_COMPARE(&g_timx_pwm_chy_handle,TIM_CHANNEL_3,1750)
+					 __HAL_TIM_SET_COMPARE(&g_timx_pwm_chy_handle,TIM_CHANNEL_3,1750);
 				 }
 }
 
