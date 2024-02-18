@@ -66,7 +66,7 @@ extern UART_HandleTypeDef huart1;
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-		startup_main();
+	
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -90,7 +90,7 @@ int main(void)
   MX_USART1_UART_Init();
 	uint8_t g_rx_buffer[1];
   /* USER CODE BEGIN 2 */
-
+  	startup_main();
   /* USER CODE END 2 */
 
   /* Infinite loop */

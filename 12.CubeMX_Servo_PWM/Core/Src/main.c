@@ -54,7 +54,7 @@ void SystemClock_Config(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-extern TIM_HandleTypeDef htim2;;
+
 /* USER CODE END 0 */
 
 /**
@@ -64,8 +64,7 @@ extern TIM_HandleTypeDef htim2;;
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-	startup_main();
-	HAL_TIM_PWM_Start(&htim2,TIM_CHANNEL_3);
+
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -88,20 +87,13 @@ int main(void)
   MX_GPIO_Init();
   MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
-
+	startup_main();
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-				__HAL_TIM_SET_COMPARE(&htim2,TIM_CHANNEL_3,1850);/*90*/
-				
-				HAL_Delay(2000);
-		
-				__HAL_TIM_SET_COMPARE(&htim2,TIM_CHANNEL_3,1750);/*180*/
-				
-				HAL_Delay(2000);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
